@@ -3,9 +3,14 @@
 #kako bih dobio kategorije studenata u ispisu
 import pandas as pd
 from datetime import datetime
+import os
 
-df = pd.read_excel('GotoviPodaciStudenata.xlsx')
+script_dir = os.path.dirname(os.path.abspath(__file__))
 
+file_path = os.path.join(script_dir, 'GotoviPodaciStudenata.xlsx')
+
+# Read the Excel file
+df = pd.read_excel(file_path)
 # Funkcija za kategorizaciju studenata
 def kategorizacija(row):
     # Ako student nije položio 5 ispita, kategorija je 0
